@@ -1,0 +1,118 @@
+.notifications.container {
+    z-index: 100;
+    padding: 1em;
+    bottom: 1em;
+    background-color: white;
+    width: 400px;
+    max-width: 90%;
+    min-width: min-content;
+    padding-right: .5em;
+    top: 1em;
+    bottom: 1em;
+    height: auto;
+    >.scrolling {
+        padding-right: .5em;
+    }
+
+    .notification {
+        &.user {
+            .description::before {
+                background-color: #2185d0;
+            }
+        }
+        &.news {
+            .description::before {
+                background-color: #f2711c;
+            }
+        }
+        opacity: 0;
+        transition: .3s opacity ease;
+        &.visible {
+            opacity: 1;
+        }
+        &:hover {
+            cursor: pointer;
+            background: rgba(45, 45, 45, .02);
+        }
+        padding: .7em;
+        border-radius: .4em;
+        border: 1px solid rgb(34 34 34 / 10%);
+        min-width: 25em;
+        display: flex;
+        position: relative;
+        &:not(:first-child) {
+            margin-top: .7em;
+        }
+        >i.close {
+            position: absolute;
+            z-index: 5;
+            font-size: 1.4em;
+            right: .2em;
+            top: .5em;
+        }
+        >.image {
+            >img {
+                position: absolute;
+                width: 100%;
+            }
+            position: relative;
+            width: 5em;
+            height: 5em;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-right: .5em;
+        }
+        >.content {
+            flex-grow: 1;
+            display: flex;
+            flex-flow: column;
+            >.header {
+                font-size: 1.5em;
+                font-family: sans-serif;
+                font-weight: 700;
+            }
+            >.description {
+                margin-top: .2em;
+                font-size: 1.2em;
+                color: grey;
+                font-style: italic;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 4px;
+                    height: 100%;
+                    border-radius: 4px;
+                    left: 0;
+                    top: 0;
+                }
+                padding-left: .7em;
+                flex-grow: 1;
+            }
+            >.date {
+                margin-top: .5em;
+                text-align: right;
+                color: rgba(34,34,34, .55);
+                font-family: monospace;
+                font-size: .8em;
+                >i {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.notification.button {
+    >.counter {
+        padding: .5em .8em;
+        background: #dc001a;
+        color: white;
+        position: absolute;
+        top: -.9em;
+        font-size: .8em;
+        border-radius: 1em;
+        z-index: 10;
+        left: calc(100% - 1.4em);
+    }
+}

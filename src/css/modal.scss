@@ -1,0 +1,27 @@
+.modal {
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity ease;
+    opacity: 0;
+    background: rgba(0,0,0,.6);
+    &.visible {
+        opacity: 1;
+    }
+    >.container {
+        position: absolute;
+        min-width: 45%;
+        max-width: 90%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        >i.close {
+            position: absolute;
+            font-size: 1.5em;
+            color: #fff;
+            top: -1.1em;
+            right: -1.4em;
+        }
+    }
+}

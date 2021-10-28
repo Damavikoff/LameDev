@@ -1,0 +1,130 @@
+.tooltip {
+    &.fixed {
+        position: fixed;
+    }
+    z-index: 1000;
+    max-width: 400px;
+    width: auto;
+    border-radius: .7em;
+    padding: .8em;
+    display: none;
+    transition: opacity ease;
+    box-shadow: 0 0 0 1px rgba(34, 34, 34, .1);
+    position: absolute;
+    >i.close {
+        font-size: 1.5em;
+        position: absolute;
+        right: 0;
+        top: 0.3em;
+        z-index: 10;
+    }
+    &.visible {
+        display: inline-block;
+    }
+    &.transparent {
+        transition-delay: .2s;
+        opacity: 0;
+    }
+    &.bottom-left {
+        left: 1em;
+        bottom: 1em;
+    }
+    &.bottom-center {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1em;
+    }
+    &.bottom-right {
+        right: 1em;
+        bottom: 1em;
+    }
+    &.right-center {
+        right: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &.left-center {
+        left: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &.top-left {
+        left: 1em;
+        top: 1em;
+    }
+    &.top-center {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 1em;
+    }
+    &.top-right {
+        right: 1em;
+        top: 1em;
+    }
+    &.attached {
+        &.bottom-left {
+            left: 0;
+            bottom: auto;
+            top: calc(100% + 1em);
+        }
+        &.bottom-center {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: auto;
+            top: calc(100% + 1em);
+        }
+        &.bottom-right {
+            right: 0;
+            bottom: auto;
+            top: calc(100% + 1em);
+        }
+        &.right-center {
+            right: auto;
+            left: calc(100% + 1em);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &.right-top {
+            right: auto;
+            left: calc(100% + 1em);
+            top: 0;
+        }
+        &.right-bottom {
+            right: auto;
+            left: calc(100% + 1em);
+            bottom: 0;
+        }
+        &.left-center {
+            left: auto;
+            right: calc(100% + 1em);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &.left-top {
+            left: auto;
+            right: calc(100% + 1em);
+            top: 0;
+        }
+        &.left-bottom {
+            left: auto;
+            right: calc(100% + 1em);
+            bottom: 0;
+        }
+        &.top-left {
+            left: 0;
+            top: auto;
+            bottom: calc(100% + 1em);
+        }
+        &.top-center {
+            left: 50%;
+            transform: translateX(-50%);
+            top: auto;
+            bottom: calc(100% + 1em);;
+        }
+        &.top-right {
+            right: 0;
+            top: auto;
+            bottom: calc(100% + 1em);
+        }
+    }
+}

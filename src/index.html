@@ -1,15 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/icons.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltip.scss">
+    <link rel="stylesheet" type="text/css" href="css/notification.scss">
+    <link rel="stylesheet" type="text/css" href="css/modal.scss">
+    <link rel="stylesheet" type="text/css" href="css/profile.scss">
+    <link rel="stylesheet" type="text/css" href="css/pin.scss">
+    <link rel="stylesheet" type="text/css" href="css/searchbar.scss">
     <link rel="stylesheet" type="text/css" href="css/styles.scss">
-    <script type="module" src="js/index.js"></script>
-    <title>ToDo List</title>
+    <script type="module" src="js/index.js" defer></script>
+    <title>Pinterest</title>
 </head>
 <body>
+    <header>
+        <div class="menu">
+            <div class="item">
+                <button class="icon circular button">
+                    <img src="assets/img/cookie_logo.png" />
+                </button>
+            </div>
+            <div class="fluid item"></div>
+            <div class="item">
+                <button class="icon circular notification button">
+                    <span class="counter"></span>
+                    <i class="bell grey icon"></i>
+                </button>
+            </div>
+            <div class="item">
+                <button class="red toggle-tooltip button">
+                    Tooltip
+                </button>
+            </div>
+            <div class="item">
+                <button class="black toggle-modal button">
+                    Modal
+                </button>
+            </div>
+            <div class="item">
+                <button class="icon circular profile button">
+                    <i class="grey user icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        
+    </main>
     
+    <div class="segment tooltip">
+        <div class="header">
+            SOME ANNOYING MESSAGE!
+            <div class="sub header">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+        </div>
+    </div>
+    <div class="segment modal-segment">MODAL PAGE!!!!!!!</div>
 </body>
 </html>
