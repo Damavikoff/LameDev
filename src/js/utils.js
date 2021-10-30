@@ -51,3 +51,7 @@ export function promiseDelay(action, delay) {
         })
     ]);
 }
+
+export function roundByScale(number, scale = 0) {
+    return Math.round(number * 10 ** scale) / 10 ** scale;
+}

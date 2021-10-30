@@ -38,3 +38,25 @@
         }
     }
 }
+
+.my-pins.segment {
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template: min-content 1fr / 1fr;
+    >.header {
+        grid-area: 1 / 1 / 1 / 1;
+        font-size: 1.3em;
+        border-bottom: 1px solid rgba(34,36,38,.15);
+        padding-bottom: 0.5em;
+        margin-bottom: .7em;
+    }
+    >.list {
+        position: relative;
+        height: 100%;
+        grid-area: 2 / 1 / span 1 / 1;
+        >.pin-list.container > div {
+            padding: 0 1em;
+        }
+    }
+}

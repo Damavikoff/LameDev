@@ -58,14 +58,15 @@ export const USER_PROFILE_CARD = `<div class="user-profile">
                                 </div>
                                 <dl class="vertical selectable menu">
                                     <dt class="item"><i class="cog icon"></i>Settings</dt>
-                                    <dt class="item"><i class="pinterest icon"></i>My pins</dt>
+                                    <dt class="my-pins item"><i class="pinterest icon"></i>My pins</dt>
                                     <dt class="item"><i class="sign out icon"></i>Sign Out</dt>
                                 </dl>
                                 </div>`
 
-export const PIN_TEMPLATE = `<div class="pin">
+export const PIN_MEDIA_TEMPLATE = `<div class="pin">
                         <div class="image">
-                            <img class="image" />
+                            <img class="media" />
+                            <video class="media" muted loop autoplay></video>
                             <div class="hover">
                                 <div class="control top">
                                     <div class="red button">Сохранить</div>
@@ -91,11 +92,24 @@ export const PIN_TEMPLATE = `<div class="pin">
                         </div>
                     </div>`;
 
+export const PIN_USER_TEMPLATE = `<div class="pin user-pin">
+                                    <div class="collage">
+                                        <div class="image"></div>
+                                        <div class="image"></div>
+                                    </div>
+                                    <div class="avatar">
+                                        <img class="covered" />
+                                    </div>
+                                    <div class="user"></div>
+                                    <div class="subscribers"></div>
+                                    <button class="grey button">Подписаться</div>
+                                </div>`;
+
 export const PIN_POPUP_TEMPLATE = `<div class="context menu">
                                     <dl class="vertical selectable menu">
-                                        <dt class="item">Скачать</dt>
+                                        <dt class="download item">Скачать</dt>
                                         <dt class="item">Скрыть</dt>
-                                        <dt class="item">Добавить себе</dt>
+                                        <dt class="add item">Добавить себе</dt>
                                     </dl>
                                 </div>`;
 
@@ -137,3 +151,10 @@ export const SEARCH_BAR_DROPDOWN = `<div class="filter-field popup-field">
                                             <dt class="item">Ваши пины</dt>
                                         </dl>
                                     </div>`;
+
+export const SAVED_PINS = `<div class="my-pins segment">
+                                <div class="header">
+                                    <i class="th icon"></i>Сохранённые пины
+                                </div>
+                                <div class="list"></div>
+                            </div>`;

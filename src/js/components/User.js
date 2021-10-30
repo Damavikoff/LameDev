@@ -8,6 +8,7 @@ export class User {
         email: null,
         image: null,
         bio: null,
+        subscribers: 0,
         registered: new Date()
     }
 }

@@ -8,7 +8,7 @@ export class Modal {
         this.transition = 200;
 
         const modal = createFromTemplate(MODAL);
-        const target = document.querySelector(selector);
+        let target = selector instanceof Element ? selector : document.querySelector(selector);
         modal.querySelector('.container').append(target);
         modal.style.transitionDuration = this.transition + 'ms';
         applyListener(modal);

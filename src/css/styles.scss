@@ -29,19 +29,6 @@ body {
         // grid-gap: 10px 20px;
         // justify-content: center;
         // grid-auto-rows: min-content;
-        >.pin-list.container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            break-inside: avoid;
-            >.content {
-                padding: 1em;
-                break-inside: avoid;
-                columns: auto 17em;
-                column-gap: 1.5em;
-            }
-        }
     }
 }
 
@@ -167,7 +154,10 @@ body ::-webkit-scrollbar-track {
     font-size: 1.2em;
     font-weight: 700;
     position: relative;
-    
+    >i {
+        font-size: 1.2em;
+        vertical-align: middle;
+    }
     &.image {
         display: flex;
         align-items: center;
@@ -217,4 +207,10 @@ img.centered {
 .divider {
     border-top: 1px solid rgba(34,36,38,.15);
     border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+img.covered {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
 }

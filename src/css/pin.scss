@@ -1,3 +1,17 @@
+.pin-list.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    break-inside: avoid;
+    >.content {
+        padding: 1em;
+        break-inside: avoid;
+        columns: auto 17em;
+        column-gap: 1.5em;
+    }
+}
+
 .pin {
     &.active {
         >.image {
@@ -18,7 +32,7 @@
         border-radius: .7em;
         overflow: hidden;
         overflow: visible;
-        >img {
+        >.media {
             width: 100%;
             display: block;
             border-radius: .7em;
@@ -43,6 +57,7 @@
             >.control.bottom {
                 grid-area: 3 / 1 / span 1 / 1;
                 display: flex;
+                justify-content: flex-end;
                 >.label {
                     text-align: left;
                     padding: .5em;
@@ -136,5 +151,55 @@
         background-color: white;
         box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
         border: 1px solid rgba(34,36,38,.15);
+    }
+    &.user-pin {
+        padding: .7em;
+        border-radius: .7em;
+        text-align: center;
+        >.collage {
+            border-radius: .7em;
+            display: grid;
+            grid-template: 1fr / 50% 50%;
+            grid-column-gap: 2px;
+            overflow: hidden;
+            >.image {
+                overflow: hidden;
+                height: 12em;
+                &:first-child {
+                    grid-area: 1 / 1 / 1 / 1;
+                }
+                &:last-child {
+                    grid-area: 1 / 2 / 1 / span 1;
+                }
+                background-color: rgba(0, 0, 0, .27);
+            }
+        }
+        >.avatar {
+            overflow: hidden;
+            border-radius: 50%;
+            width: 6em;
+            height: 6em;
+            border: 2px solid white;
+            margin: 0 auto;
+            transform: translateY(-50%);
+        }
+        >.user {
+            margin-top: -1.6em;
+            font-weight: 700;
+            font-size: 1.7em;
+        }
+        >.subscribers {
+            margin: .5em 0 .5em 0;
+            font-size: .9em;
+            font-style: italic;
+            color: rgba(0, 0, 0, 0.67);
+        }
+        >.button {
+            font-size: 1.2em;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(239, 239, 239);
+        }
     }
 }
