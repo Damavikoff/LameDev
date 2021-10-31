@@ -22,7 +22,7 @@ export function applyListener(el, callback, type = 'click', prevent = true, prop
     el.addEventListener(type, (event) => {
         prevent && event.preventDefault();
         propagation && event.stopPropagation();
-        callback && callback();
+        callback && callback(event);
     });
 }
 

@@ -46,6 +46,7 @@
     >.filter {
         position: relative;
         padding-left: .5em;
+        width: 10em;
         &::before {
             content: '';
             left: 0;
@@ -72,6 +73,10 @@
             >i {
                 margin: 0;
                 margin-left: .5em
+            }
+            >.text {
+                flex-grow: 1;
+                text-align: center;
             }
         }
     }
@@ -124,6 +129,11 @@
             .menu > .item.active {
                 font-weight: 700;
             }
+        }
+    }
+    &:not(.active) {
+        >label > i, >.filter {
+            display: none;
         }
     }
 }

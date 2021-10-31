@@ -63,10 +63,13 @@ export class UserProfile {
             return;
         }
         const settings = {
-            searchValue: '',
-            filter: 0,
+            searchBar: {
+                searchValue: '',
+                filterType: 0,
+                tagList: []
+            }
         };
-        localStorage.setItem('pinterestProfile', settings);
+        localStorage.setItem('pinterestProfile', JSON.stringify(settings));
     }
 
     static savePin(pin) {
@@ -76,9 +79,6 @@ export class UserProfile {
         });
         if (check) {
             return;
-        }
-        if (UserProfile.#activeUser.savedPins.length > 4) {
-            UserProfile.#activeUser.savedPins.pop();
         }
         UserProfile.#activeUser.savedPins.unshift(pin.clone());
     }

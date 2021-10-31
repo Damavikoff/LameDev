@@ -57,9 +57,9 @@ export const USER_PROFILE_CARD = `<div class="user-profile">
                                     </div>
                                 </div>
                                 <dl class="vertical selectable menu">
-                                    <dt class="item"><i class="cog icon"></i>Settings</dt>
-                                    <dt class="my-pins item"><i class="pinterest icon"></i>My pins</dt>
-                                    <dt class="item"><i class="sign out icon"></i>Sign Out</dt>
+                                    <dt class="item"><i class="cog icon"></i>Настройки</dt>
+                                    <dt class="my-pins item"><i class="pinterest icon"></i>Мои пины</dt>
+                                    <dt class="item"><i class="sign out icon"></i>Выход</dt>
                                 </dl>
                                 </div>`
 
@@ -135,20 +135,16 @@ export const SEARCH_BAR_TAG_FIELD = `<div class="tag-field popup-field">
                                             <span class="text">Недавние поисковые запросы</span>
                                             <i class="grey link close icon"></i>
                                             <div class="divider"></div>
-                                            <div class="tag-list">
-                                                <div class="tag-label">ancient</div>
-                                                <div class="tag-label">nature</div>
-                                                <div class="tag-label">light</div>
-                                            </div>
+                                            <div class="tag-list"></div>
                                         </div>
                                     </div>`;
 
 export const SEARCH_BAR_DROPDOWN = `<div class="filter-field popup-field">
                                         <dl class="vertical selectable menu">
-                                            <dt class="item">Все пины</dt>
-                                            <dt class="item">Видео</dt>
-                                            <dt class="item">Люди</dt>
-                                            <dt class="item">Ваши пины</dt>
+                                            <dt data-type="0" class="item">Все пины</dt>
+                                            <dt data-type="1" class="item">Видео</dt>
+                                            <dt data-type="2" class="item">Люди</dt>
+                                            <dt data-type="3" class="item">Ваши пины</dt>
                                         </dl>
                                     </div>`;
 

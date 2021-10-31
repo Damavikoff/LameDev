@@ -12,7 +12,13 @@ import { SearchBar } from './components/SearchBar'
 document.addEventListener('DOMContentLoaded', function() {
 
     const searchBar = new SearchBar({
-        attachedTo: 'header .menu > .fluid.item'
+        attachedTo: 'header .menu > .fluid.item',
+        onSearch(value) {
+            console.log(value);
+        },
+        onFilter(type) {
+            console.log(type)
+        }
     });
 
     const tooltip = new Tooltip({element: '.tooltip', isCloseable: true});

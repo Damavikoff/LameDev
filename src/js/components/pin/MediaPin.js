@@ -51,7 +51,7 @@ class MediaPin extends Pin {
             if (!this.isActive) {
                 return;
             }
-
+            this.popup.element.classList.remove('left-top');
             if (window.innerWidth - this.popup.element.getBoundingClientRect().right > 0) {
                 switchClass(this.popup.element, 'left-top', 'right-top');
             } else {
@@ -66,10 +66,12 @@ class MediaPin extends Pin {
             a.click();
             a.remove();
             this.#setInactive();
+            this.popup.hide();
         });
 
         applyListener(this.popup.element.querySelector('.item.add'), () => {
             UserProfile.savePin(this);
+            this.popup.hide();
         });
 
         applyListener(this.element.querySelector('.control.top > .button'), () => {
