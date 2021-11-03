@@ -11,7 +11,7 @@ export class Modal {
         let target = selector instanceof Element ? selector : document.querySelector(selector);
         modal.querySelector('.container').append(target);
         modal.style.transitionDuration = this.transition + 'ms';
-        applyListener(modal);
+        //applyListener(modal);
         applyListener(modal.querySelector('.container > i.close'), () => { this.hide(); });
 
         this.element = modal;

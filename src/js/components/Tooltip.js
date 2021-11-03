@@ -80,7 +80,9 @@ export class Tooltip {
 
     show() {
         if (this.isVisible) return;
-        Tooltip.#closeAll();
+        if (!this.isCloseable) {
+            Tooltip.#closeAll();
+        }
         this.attachedTo.append(this.element);
         if (!this.transition.duration) {
             this.element.style.opacity = 1;

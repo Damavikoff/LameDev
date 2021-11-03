@@ -55,3 +55,19 @@ export function promiseDelay(action, delay) {
 export function roundByScale(number, scale = 0) {
     return Math.round(number * 10 ** scale) / 10 ** scale;
 }
+
+export function doRequest(url) {
+    return new Promise((resolve, reject) => {
+        try {
+            fetch(url).then(response => {
+                if (response.ok) {
+                    resolve(response.json());
+                } else {
+                    reject('Bad response');
+                }
+            })
+        } catch (err) {
+            reject(err);
+        }
+    });
+}

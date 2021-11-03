@@ -90,9 +90,9 @@ export class SearchBar {
         this.element.querySelector('label > input').value = this.searchValue;
         const filterTypes = [
             {name: 'Все пины', value: 0},
-            {name: 'Видео', value: 1},
-            {name: 'Люди', value: 2},
-            {name: 'Ваши пины', value: 3}
+            {name: 'Люди', value: 1},
+            {name: 'Видео', value: 2},
+            {name: 'Картинки', value: 3}
         ];
         const filterText = filterTypes.find(el => el.value === this.filterType).name;
         this.element.querySelector('.filter > .dropdown > .text').textContent = filterText;

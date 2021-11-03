@@ -214,3 +214,16 @@ img.covered {
     object-fit: cover;
     height: 100%;
 }
+
+.annoying.tooltip {
+    background-color: #0074e8;
+    color: white;
+    .sub.header {
+        color: snow;
+    }
+}
+
+.logo {
+    width: 2.4em;
+    vertical-align: middle;
+}

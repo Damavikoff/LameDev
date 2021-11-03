@@ -80,6 +80,9 @@ export class UserProfile {
         if (check) {
             return;
         }
-        UserProfile.#activeUser.savedPins.unshift(pin.clone());
+        const cloned = pin.clone();
+        cloned.element.querySelector('.control.top > .button').remove();
+        cloned.popup.element.querySelector('.add.item').remove();
+        UserProfile.#activeUser.savedPins.unshift(cloned);
     }
 }

@@ -1,5 +1,8 @@
 import { createFromTemplate } from '../../utils'
 import { PIN_LIST_TEMPLATE } from '../../templates'
+import { UserPin } from './UserPin';
+import { ImagePin, VideoPin } from './MediaPin';
+import { User } from '../User';
 
 export class PinList {
     constructor({list, attachedTo}) {
@@ -33,6 +36,15 @@ export class PinList {
         this.list = list;
         list.forEach(el => {
             el.target = this.element.querySelector('.content');
+        });
+        this.renderItems();
+    }
+
+    static generatePins(list) {
+        return list.map(el => {
+            if (el.type === 1) return new UserPin(el);
+            if (el.type === 2) return new VideoPin(el);
+            if (el.type === 3) return new ImagePin(el);
         });
     }
 }

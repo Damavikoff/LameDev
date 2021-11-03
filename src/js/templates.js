@@ -142,9 +142,9 @@ export const SEARCH_BAR_TAG_FIELD = `<div class="tag-field popup-field">
 export const SEARCH_BAR_DROPDOWN = `<div class="filter-field popup-field">
                                         <dl class="vertical selectable menu">
                                             <dt data-type="0" class="item">Все пины</dt>
-                                            <dt data-type="1" class="item">Видео</dt>
-                                            <dt data-type="2" class="item">Люди</dt>
-                                            <dt data-type="3" class="item">Ваши пины</dt>
+                                            <dt data-type="1" class="item">Люди</dt>
+                                            <dt data-type="2" class="item">Видео</dt>
+                                            <dt data-type="3" class="item">Картинки</dt>
                                         </dl>
                                     </div>`;
 
