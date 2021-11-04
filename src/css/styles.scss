@@ -17,9 +17,10 @@ body {
     height: 100vh;
     >header {
         grid-area: 1 / 1 / span 1 / 1;
-        padding: .7em;
+        padding: .7em 0 0 0;
         z-index: 100;
         background: white;
+        border-bottom: 1px solid rgba(34,36,38,.15);
     }
     >main {
         position: relative;
@@ -224,6 +225,36 @@ img.covered {
 }
 
 .logo {
-    width: 2.4em;
+    height: 3.3em;
     vertical-align: middle;
+}
+
+.dimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.85);
+    z-index: 1000;
+    >.loader {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        font-size: 7em;
+        opacity: .5;
+        >i {
+            animation: rotating 2s linear infinite;
+        }
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

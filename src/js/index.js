@@ -1,53 +1,45 @@
 import { Tooltip } from "./components/Tooltip";
 import { UserNotification, NewsNotification, NotificationList } from './components/Notification' 
 import { User } from './components/User'
-import { Modal } from './components/Modal'
-import { applyListener, promiseDelay, doRequest } from './utils'
+import { promiseDelay, doRequest } from './utils'
 import { UserProfile } from "./components/UserProfile";
 import { PinList } from './components/pin/PinList'
-import { ImagePin, VideoPin } from './components/pin/MediaPin'
-import { UserPin } from './components/pin/UserPin'
 import { SearchBar } from './components/SearchBar'
+import { API_URL } from './globals'
 
 document.addEventListener('DOMContentLoaded', async function() {
 
     let userData = [];
     let pinsData = [];
-    let isReady = false;
+    const storage = localStorage.getItem('pinterestProfile');
 
-    await doRequest('https://6182bc4502f60a001775ce9d.mockapi.io/pinter/users').then(data => {
+    await doRequest(API_URL + 'users').then(data => {
         userData = data.map(el => new User(el));
-        const storage = localStorage.getItem('pinterestProfile');
         const search = storage ? JSON.parse(storage).searchBar.searchValue : '';
-        return doRequest('https://6182bc4502f60a001775ce9d.mockapi.io/pinter/pins?title=' + search);
+        return doRequest(API_URL + 'pins?title=' + search);
     }).then(data => {
         pinsData = data.map(el => Object.assign(el, {user: userData.find(user => el.user === user.id)}));
-        isReady = true; 
+        document.querySelector('body > .dimmer').remove();
     }).catch(err => {
         alert(err);
     })
-
-    UserProfile.getInstance(new User(userData[0]), 'button.profile');
-    const pinList = new PinList({list: PinList.generatePins(pinsData), attachedTo: 'main'});
-    pinList.toggle();
 
     const searchBar = new SearchBar({
         attachedTo: 'header .menu > .fluid.item',
         onSearch(value) {
             doRequest('https://6182bc4502f60a001775ce9d.mockapi.io/pinter/pins?title=' + value).then(data => {
-                const list = data.map(el => Object.assign(el, {user: userData.find(user => el.user === user.id)}));
-                pinList.setList(PinList.generatePins(list));
+                pinsData = data.map(el => Object.assign(el, {user: userData.find(user => el.user === user.id)}));
+                pinList.setList(PinList.generatePins(searchBar.getFilteredList(pinsData)));
             }).catch(err => alert(err));
         },
-        onFilter(value) {
-            const type = parseInt(value) ? value : '';
-            console.log('https://6182bc4502f60a001775ce9d.mockapi.io/pinter/pins?title=' + encodeURIComponent(searchBar.searchValue) + '&type=' + type);
-            doRequest('https://6182bc4502f60a001775ce9d.mockapi.io/pinter/pins?title=' + encodeURIComponent(searchBar.searchValue) + '&type=' + type).then(data => {
-                const list = data.map(el => Object.assign(el, {user: userData.find(user => el.user === user.id)}));
-                pinList.setList(PinList.generatePins(list));
-            }).catch(err => alert(err));
+        onFilter() {
+            pinList.setList(PinList.generatePins(searchBar.getFilteredList(pinsData)));
         }
     });
+
+    UserProfile.getInstance(new User(userData[0]), 'button.profile');
+    const pinList = new PinList({list: PinList.generatePins(searchBar.getFilteredList(pinsData)), attachedTo: 'main'});
+    pinList.toggle();
 
     const tooltip = new Tooltip({element: '.tooltip', isCloseable: true});
     setTimeout(() => {
@@ -86,5 +78,5 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     setTimeout(() => {
         notificationList.expand()
-    }, 1300);
+    }, 700);
 });

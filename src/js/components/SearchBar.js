@@ -127,11 +127,14 @@ export class SearchBar {
         }, 'keyup');
 
         applyListener(this.element.querySelector('label > i.close'), () => {
-            this.element.querySelector('label > input').value = '';
-            this.searchValue = '';
-            this.#toggleActive();
-            this.onSearch(this.searchValue);
-            this.#setStorageData();
+            // this.element.querySelector('label > input').value = '';
+            // this.searchValue = '';
+            // this.#toggleActive();
+            // this.onSearch(this.searchValue);
+            // this.#setStorageData();
+            this.filterType = 0;
+            this.setDefaults();
+            this.#setSearch('');
         });
 
         this.filterDropdown.element.querySelectorAll('.item').forEach(el => {
@@ -176,8 +179,12 @@ export class SearchBar {
     #setFilterItem(data, text) {
         this.filterType = Number(data);
         this.element.querySelector('.filter > .dropdown > .text').textContent = text;
-        this.onFilter(data);
+        this.onFilter(this.filterType);
         this.#setStorageData();
+    }
+
+    getFilteredList(list) {
+        return list.filter(el => el.type === (this.filterType ? this.filterType : el.type));
     }
 
     #render() {
