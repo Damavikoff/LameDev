@@ -2,7 +2,7 @@ import { createFromTemplate } from '../../utils'
 import { PIN_LIST_TEMPLATE } from '../../templates'
 import { UserPin } from './UserPin';
 import { ImagePin, VideoPin } from './MediaPin';
-import { User } from '../User';
+import { promiseDelay } from '../../utils';
 
 export class PinList {
     constructor({list, attachedTo}) {
@@ -25,11 +25,13 @@ export class PinList {
     renderItems() {
         this.element.querySelector('.content').innerHTML = '';
         this.list.forEach(el => {
+            el.element.style.opacity = 0;
             el.render();
         });
-        // this.list.reduce((acc, el) => {
-        //     return acc.then(() => promiseDelay(el.show(), 1000));
-        // }, Promise.resolve());
+
+        this.list.reduce((acc, el) => {
+            return acc.then(() => promiseDelay((() => {el.element.style.opacity = 1})(), 40));
+        }, Promise.resolve());
     }
 
     setList(list) {
